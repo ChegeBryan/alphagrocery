@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Subcategory;
 use App\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+use function Psy\debug;
+
+class SubcategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +17,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.category.index', compact('categories'));
+        $subcategories = Subcategory::all();
+        return view('admin.subcategory.index', compact('subcategories'));
     }
 
     /**
@@ -25,7 +28,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $categories = Category::all('id', 'category_name');
+        return view('admin.subcategory.create', compact('categories'));
     }
 
     /**
@@ -37,22 +41,21 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'category_name' => 'required|unique:categories',
-            'category_description' => 'required',
-            'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'subcategory_name' => 'required|unique:subcategories',
+            'category' => 'required',
+            'subcategory_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
-
-        $image = $request->file('category_image');
+        $image = $request->file('subcategory_image');
         $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
         $destinationPath = public_path('/images/category');
         $image->move($destinationPath, $input['imagename']);
-        $category = new Category([
-            'category_name' => $request->get('category_name'),
-            'category_description' => $request->get('category_description'),
-            'category_image' => $input['imagename'],
+        $subcategory = new Subcategory([
+            'subcategory_name' => $request->get('subcategory_name'),
+            'category_id' => $request->get('category'),
+            'subcategory_image' => $input['imagename'],
         ]);
-        $category->save();
-        return redirect('/category/create')->with('success', 'Category saved!');
+        $subcategory->save();
+        return redirect('/subcategory/create')->with('success', 'Sub-Category saved!');
     }
 
     /**
@@ -74,8 +77,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::find($id);
-        return view('admin.category.edit', compact('category'));
+        $subcategory = Subcategory::find($id);
+        $categories = Category::all();
+        return view('admin.subcategory.edit', compact('subcategory', 'categories'));
     }
 
     /**
@@ -88,25 +92,25 @@ class CategoryController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'category_name' => 'required|unique:categories,category_name,' . $id,
-            'category_description' => 'required',
-            'category_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'subcategory_name' => 'required|unique:subcategories,subcategory_name,' . $id,
+            'subcategory_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-
-        $category = Category::find($id);
-        $category->category_name = $request->get('category_name');
-        $category->category_description = $request->get('category_description');
-        if ($request->has('category_image')) {
+        $subcategory = Subcategory::find($id);
+        $subcategory->subcategory_name = $request->get('subcategory_name');
+        if ($request->has('category')) {
+            $subcategory->category_id = $request->get('category');
+        };
+        if ($request->has('subcategory_image')) {
             $image = $request->file('category_image');
             $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
             $destinationPath = public_path('/images/category');
             $image->move($destinationPath, $input['imagename']);
-            $category->category_image = $input['imagename'];
+            $subcategory->subcategory_image = $input['imagename'];
         };
 
-        $category->save();
-        return redirect('/category')->with('success', 'Category updated!');
+        $subcategory->save();
+        return redirect('/subcategory')->with('success', 'Sub-Category updated!');
     }
 
     /**
@@ -117,9 +121,9 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        $subcategory = Subcategory::find($id);
+        $subcategory->delete();
 
-        return redirect('/category')->with('success', 'Category deleted!');
+        return redirect('/subcategory')->with('success', 'Sub-Category deleted!');
     }
 }

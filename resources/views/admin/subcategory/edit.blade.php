@@ -9,8 +9,9 @@
 
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Category</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <h1 class="h3 mb-0 text-gray-800">Sub Category</h1>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
   </div>
 
   <!-- Content Row -->
@@ -22,7 +23,7 @@
         <div class="card-body">
           <div class="row no-gutters align-items-center">
             <div class="col mr-2">
-              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Create Category</div>
+              <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Category</div>
               <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
             </div>
             <div class="col-auto">
@@ -63,7 +64,8 @@
                 </div>
                 <div class="col">
                   <div class="progress progress-sm mr-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                         aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -102,7 +104,7 @@
     <div class="col-xl-8 col-lg-7">
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
-        <h6 class="card-header m-0 font-weight-bold text-primary py-3">Create Category</h6>
+        <h6 class="card-header m-0 font-weight-bold text-primary py-3">Update Sub-Category</h6>
         <!-- Card Body -->
         <div class="card-body">
           @if(session()->get('success'))
@@ -120,23 +122,40 @@
           </div>
           <br />
           @endif
-          <form method="POST" action="{{ route('category.store') }}" enctype="multipart/form-data">
+          <form method="POST" action="{{ route('subcategory.update', $subcategory->id) }}"
+                enctype="multipart/form-data">
+            @method('PATCH')
             @csrf
 
             <div class=" form-group">
-              <label for="category_name">{{ __('Category Name') }}</label>
-              <input type="text" class="form-control" name="category_name" id="category_name">
+              <label for="subcategory_name">{{ __('Sub-Category Name') }}</label>
+              <input type="text" class="form-control" name="subcategory_name" id="subcategory_name"
+                     value="{{ $subcategory->subcategory_name }}">
             </div>
-            <div class="form-group">
-              <label for="category_description">{{ __('Category Description') }}</label>
-              <textarea class="form-control" rows="3" name="category_description"></textarea>
+
+            <div class="form-text mb-3">Current Category: {{$subcategory->category->category_name}}</div>
+
+            <select class="custom-select" name="category">
+              <option selected disabled>Select New category</option>
+              @foreach($categories as $category)
+              <option value="{{ $category->id }}">{{$category->category_name}}</option>
+              @endforeach
+            </select>
+
+            <div class="form-row mt-3">
+              <div class="form-group col-md-6">
+                <img class="img-fluid w-25" src="{{asset('images/category/'.$subcategory->subcategory_image)}}">
+              </div>
+              <div class="form-group col-md-6">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="subcategory_image" name="subcategory_image">
+                  <label class="custom-file-label" for="subcategory_image">Update subcategory pic</label>
+                </div>
+              </div>
             </div>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="category_image" name="category_image">
-              <label class="custom-file-label" for="category_image">Choose category pic</label>
-            </div>
+
             <button type="submit" class="btn btn-primary btn-block mt-3">
-              {{ __('Add Category') }}
+              {{ __('Update Subcategory') }}
             </button>
           </form>
         </div>
@@ -150,7 +169,8 @@
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
           <div class="dropdown no-arrow">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">

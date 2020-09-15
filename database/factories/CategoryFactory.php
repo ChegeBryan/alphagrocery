@@ -7,8 +7,8 @@ use Faker\Generator as Faker;
 
 $factory->define(Category::class, function (Faker $faker) {
     return [
-        'categoryName' => $faker->name,
-        'categoryDescription' => $faker->paragraph,
-        'categoryPic' => '1600094558.png',
+        'category_name' => $faker->name,
+        'category_description' => $faker->paragraph,
+        'category_image' => '1600094558.png',
     ];
 });

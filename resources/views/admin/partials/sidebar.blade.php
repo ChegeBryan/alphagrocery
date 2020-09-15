@@ -53,8 +53,8 @@
         <div id="collapseSubCats" class="collapse" aria-labelledby="headingSubCats" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Actions:</h6>
-            <a class="collapse-item" href="utilities-color.html">Add Subcategory</a>
-            <a class="collapse-item" href="utilities-border.html">Manage Subcategories</a>
+            <a class="collapse-item" href="{{ route('subcategory.create') }}">Add Subcategory</a>
+            <a class="collapse-item" href="{{ route('subcategory.index') }}">Manage Subcategories</a>
             <a class="collapse-item" href="utilities-animation.html">Animations</a>
             <a class="collapse-item" href="utilities-other.html">Other</a>
           </div>
