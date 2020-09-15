@@ -104,7 +104,7 @@
     <div class="col-xl-8 col-lg-7">
       <div class="card shadow mb-4">
         <!-- Card Header - Dropdown -->
-        <h6 class="card-header m-0 font-weight-bold text-primary py-3">Update Sub-Category</h6>
+        <h6 class="card-header m-0 font-weight-bold text-primary py-3">Update Subcategory</h6>
         <!-- Card Body -->
         <div class="card-body">
           @if(session()->get('success'))
