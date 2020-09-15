@@ -8,15 +8,15 @@
 
         <div class="card-body">
           <h4 class="card-title text-center">{{ __('Register') }}</h4>
-          <form method="POST" action="{{ route('register') }}">
+          <form method="POST" action="{{ route('register.admin') }}">
             @csrf
 
             <div class="form-group">
-              <label for="firstName">{{ __('First Name') }}</label>
-              <input id="firstName" type="text" class="form-control @error('firstName') is-invalid @enderror"
-                     name="firstName" value="{{ old('firstName') }}" required autocomplete="on" autofocus>
+              <label for="name">{{ __('Admin Name') }}</label>
+              <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"
+                     value="{{ old('name') }}" required autocomplete="on" autofocus>
 
-              @error('firstName')
+              @error('name')
               <span class="invalid-feedback" role="alert">
                 <strong>{{ $message }}</strong>
               </span>
@@ -24,46 +24,6 @@
 
             </div>
 
-            <div class="form-group">
-              <label for="lastName">{{ __('Last Name') }}</label>
-
-
-              <input id="lastName" type="text" class="form-control @error('lastName') is-invalid @enderror"
-                     name="lastName" value="{{ old('lastName') }}" required autocomplete="on">
-
-              @error('lastName')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-
-            </div>
-
-            <div class="form-group">
-              <label for="homeAddress">{{ __('Home Address') }}</label>
-
-              <input id="homeAddress" type="text" class="form-control @error('homeAddress') is-invalid @enderror"
-                     name="homeAddress" value="{{ old('homeAddress') }}" autocomplete="on" required>
-
-              @error('homeAddress')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-
-            </div>
-
-            <div class="form-group">
-              <label for="phoneNumber">{{ __('Phone Number') }}</label>
-              <input id="phoneNumber" type="text" class="form-control @error('phoneNumber') is-invalid @enderror"
-                     name="phoneNumber" value="{{ old('phoneNumber') }}" autocomplete="on" required>
-
-              @error('phoneNumber')
-              <span class="invalid-feedback" role="alert">
-                <strong>{{ $message }}</strong>
-              </span>
-              @enderror
-            </div>
             <div class="form-group">
               <label for="email">{{ __('E-Mail Address') }}</label>
 
