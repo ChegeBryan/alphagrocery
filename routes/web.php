@@ -30,13 +30,13 @@ Route::post('/register/store', 'Auth\RegisterController@createStore')->name('reg
 Route::view('/home', 'home')->middleware('auth');
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::view('/admin', 'admin.dashboard')->name('admin.home');
+    Route::resource('category', 'CategoryController');
+    Route::resource('subcategory', 'SubcategoryController');
+    Route::resource('prodparameter', 'ProductParameterController');
 });
 
 Route::group(['middleware' => 'auth:store'], function () {
     Route::view('/store', 'store.dashboard')->name('store.home');
 });
 
-Route::resource('category', 'CategoryController');
-Route::resource('subcategory', 'SubcategoryController');
-Route::resource('prodparameter', 'ProductParameterController');
 Route::resource('products', 'ProductController');
