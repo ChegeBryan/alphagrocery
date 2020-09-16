@@ -43,7 +43,7 @@
         </div>
       </li>
 
-      <!-- Nav Item - Sub Categories Menu -->
+      <!-- Nav Item - Product parameters Menu -->
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSubCats"
            aria-expanded="true" aria-controls="collapseSubCats">
@@ -55,8 +55,21 @@
             <h6 class="collapse-header">Actions:</h6>
             <a class="collapse-item" href="{{ route('subcategory.create') }}">Add Subcategory</a>
             <a class="collapse-item" href="{{ route('subcategory.index') }}">Manage Subcategories</a>
-            <a class="collapse-item" href="utilities-animation.html">Animations</a>
-            <a class="collapse-item" href="utilities-other.html">Other</a>
+          </div>
+        </div>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsepar" aria-expanded="true"
+           aria-controls="collapsepar">
+          <i class="fas fa-fw fa-wrench"></i>
+          <span>Product Parameters</span>
+        </a>
+        <div id="collapsepar" class="collapse" aria-labelledby="headingpar" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Actions:</h6>
+            <a class="collapse-item" href="{{ route('prodparameter.create') }}">Add Parameter</a>
+            <a class="collapse-item" href="{{ route('prodparameter.index') }}">Manage Parameters</a>
           </div>
         </div>
       </li>

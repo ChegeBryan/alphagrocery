@@ -38,3 +38,4 @@ Route::group(['middleware' => 'auth:store'], function () {
 
 Route::resource('category', 'CategoryController');
 Route::resource('subcategory', 'SubcategoryController');
+Route::resource('prodparameter', 'ProductParameterController');
