@@ -120,6 +120,8 @@ class ProductController extends Controller
         $product->product_description = $request->get('description');
         $product->product_price = $request->get('price');
         $product->product_quantity = $request->get('quantity');
+        $current_image = $product->product_image;
+        $new_image = "";
 
         if ($request->has('subcategory')) {
             $product->subcategory_id = $request->get('subcategory');
@@ -128,16 +130,17 @@ class ProductController extends Controller
             $product->product_parameter_id = $request->get('parameter');
         }
         if ($request->has('image')) {
-            $oldimage = $product->image;
-            $image = $request->file('image');
-            $extension = $image->getClientOriginalExtension();
+            $new_image = $request->file('image');
+            $extension = $new_image->getClientOriginalExtension();
             $filename  = 'product-' . time() . '.' . $extension;
             $product->product_image = $filename;
+            $new_image->storeAs('products', $filename, 'public');
         }
         $product->save();
-        $image->storeAs('products', $filename, 'public');
-        Storage::move('products/' . $oldimage, 'products/' . $image);
-        return redirect('/products')->with('success', 'Product Updated!');
+        if (Storage::disk('public')->exists('products/' . $new_image)) {
+            Storage::disk('public')->delete('products/' . $current_image);
+        }
+        return redirect('/products')->with('success', $current_image);
     }
 
     /**
