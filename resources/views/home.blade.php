@@ -49,50 +49,20 @@
   <h3 class="text-center py-4">Picks of the day</h3>
 
   <div class="card-deck">
+    @foreach($products as $product)
     <div class="card">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top img-fluid" width="150px" height="150px" alt="...">
-
+      <img src="{{ asset('storage/products/'.$product->product_image) }}" class="card-img-top img-fluid" width="100px"
+           height="100px" alt="...">
       <div class="card-body">
         <div class="d-flex justify-content-between">
-          <span class="font-weight-bold text-info">Ksh. 1,000</span>
+          <span class="font-weight-bold text-info">Ksh. {{$product->product_price}}</span>
           <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw fa-2x"></i></a>
         </div>
-        <p class="card-text">Brocolli</p>
+        <span class="text-muted">per. {{$product->parameter->parameter}}</span>
+        <p class="card-text">{{ucfirst($product->product_name)}}</p>
       </div>
     </div>
-    <div class="card">
-      <img src="{{ asset('images/br.jpeg') }}" class="card-img-top img-fluid" width="150px" height="150px" alt="...">
-
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <span class="font-weight-bold text-info">Ksh. 1,000</span>
-          <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw"></i></a>
-        </div>
-        <p class="card-text">Brocolli</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top img-fluid" width="150px" height="150px" alt="...">
-
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <span class="font-weight-bold text-info">Ksh. 1,000</span>
-          <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw"></i></a>
-        </div>
-        <p class="card-text">Brocolli</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top img-fluid" width="150px" height="150px" alt="...">
-
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <span class="font-weight-bold text-info">Ksh. 1,000</span>
-          <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw"></i></a>
-        </div>
-        <p class="card-text">Brocolli</p>
-      </div>
-    </div>
+    @endforeach
   </div>
 </div>
 <!-- End picks of the day -->
@@ -102,48 +72,12 @@
   <h3 class="text-center py-4">Shop by category</h3>
 
   <div class="slido" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
+    @foreach($categories as $category)
     <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
+      <img src="{{ asset('storage/categories/'.$category->category_image) }}" alt="" class="" width="150px"
+           height="150px">
     </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
-    <div>
-      <img src="{{ asset('img/br.jpeg') }}" alt="">
-    </div>
+    @endforeach
   </div>
 </div>
 <!-- End Shop by category -->
@@ -153,36 +87,12 @@
   <h3 class="text-center py-4">Shop by Subcategory</h3>
 
   <div class="vendors" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
-    <div class="card" style="width: 10rem;">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-      </div>
+    @foreach($subcategories as $subcategory)
+    <div>
+      <img src="{{ asset('storage/subcategories/'.$subcategory->subcategory_image) }}" alt="" class="" width="150px"
+           height="150px">
     </div>
-    <div class="card" style="width: 10rem;">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-      </div>
-    </div>
-    <div class="card" style="width: 10rem;">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-      </div>
-    </div>
+    @endforeach
   </div>
 </div>
 
