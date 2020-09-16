@@ -116,7 +116,6 @@ class ProductController extends Controller
 
         $product = Product::find($id);
         $product->store_id = Auth::guard('store')->user()->id;
-        $product->product_parameter_id = $request->get('parameter');
         $product->product_name = $request->get('name');
         $product->product_description = $request->get('description');
         $product->product_price = $request->get('price');
