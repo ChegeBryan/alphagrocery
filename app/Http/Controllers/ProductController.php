@@ -68,7 +68,7 @@ class ProductController extends Controller
             'product_quantity' => $request->get('quantity'),
         ]);
         $product->save();
-        $image->storeAs('products', $filename);
+        $image->storeAs('products', $filename, 'public');
         return redirect('/products/create')->with('success', 'Product saved!');
     }
 
