@@ -42,7 +42,7 @@ class CategoryController extends Controller
             'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $image = $request->file('image');
+        $image = $request->file('category_image');
         $extension = $image->getClientOriginalExtension();
         $filename  = 'category-' . time() . '.' . $extension;
         $category = new Category([
