@@ -45,11 +45,11 @@
             @csrf
             <div class=" form-group">
               <label for="name">{{ __('Product Name') }}</label>
-              <input type="text" class="form-control" name="name" id="name" value="{{ $product->name }}">
+              <input type="text" class="form-control" name="name" id="name" value="{{$product->product_name}}">
             </div>
             <div class="form-group">
               <label for="description">{{ __('Product Description') }}</label>
-              <textarea class="form-control" rows="3" name="description">{{$product->description}}</textarea>
+              <textarea class="form-control" rows="3" name="description">{{$product->product_description}}</textarea>
             </div>
 
             <div class="form-text">Current Subcategory: {{$product->subcategory->subcategory_name}}</div>
@@ -71,15 +71,16 @@
             </select>
             <div class=" form-group">
               <label for="price">{{ __('Product Price') }} Kshs.</label>
-              <input type="number" class="form-control" name="price" id="price" value="{{$product->price}}">
+              <input type="number" class="form-control" name="price" id="price" value="{{$product->product_price}}">
             </div>
             <div class=" form-group">
               <label for="quantity">{{ __('Product Quantity') }}</label>
-              <input type="number" class="form-control" name="quantity" id="quantity" value="{{$product->quantity}}">
+              <input type="number" class="form-control" name="quantity" id="quantity"
+                     value="{{$product->product_quantity}}">
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <img class="img-fluid w-25" src="{{ asset('storage/products/'.$product->image) }}">
+                <img class="img-fluid w-25" src="{{ asset('storage/products/'.$product->product_image) }}">
               </div>
               <div class="form-group col-md-6">
                 <div class="custom-file">
