@@ -31,4 +31,10 @@ class HomeController extends Controller
         $subcategories = Subcategory::all();
         return view('home', compact('products', 'categories', 'subcategories'));
     }
+
+    public function allProducts()
+    {
+        $products = Product::paginate(25);
+        return view('shop', compact('products'));
+    }
 }
