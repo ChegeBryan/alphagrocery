@@ -16,6 +16,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/shop', 'HomeController@allProducts')->name('shop');
 
 Route::get('/login/admin', 'Auth\LoginController@gotoAdminLoginForm');
 Route::get('/login/store', 'Auth\LoginController@gotoStoreLoginForm');
