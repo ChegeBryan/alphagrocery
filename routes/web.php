@@ -35,7 +35,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
     Route::resource('prodparameter', 'ProductParameterController');
 });
 
-Route::group(['middleware' => 'auth:store'], function () {
-    Route::view('/store', 'store.dashboard')->name('store.home');
+Route::group(['middleware' => 'auth:store', 'prefix' => 'store'], function () {
+    Route::view('', 'store.dashboard')->name('store.home');
     Route::resource('products', 'ProductController');
 });
