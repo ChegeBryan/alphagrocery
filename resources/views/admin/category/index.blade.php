@@ -19,6 +19,11 @@
       <h6 class="m-0 font-weight-bold text-primary">Product Categories</h6>
     </div>
     <div class="card-body">
+      @if(session()->get('success'))
+      <div class="alert alert-success">
+        {{ session()->get('success') }}
+      </div>
+      @endif
       <div class="table-responsive">
         <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
           <thead>
