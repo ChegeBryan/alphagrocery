@@ -28,8 +28,8 @@ Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('reg
 Route::post('/register/store', 'Auth\RegisterController@createStore')->name('register.store');
 
 Route::view('/home', 'home')->middleware('auth');
-Route::group(['middleware' => 'auth:admin'], function () {
-    Route::view('/admin', 'admin.dashboard')->name('admin.home');
+Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
+    Route::view('', 'admin.dashboard')->name('admin.home');
     Route::resource('category', 'CategoryController');
     Route::resource('subcategory', 'SubcategoryController');
     Route::resource('prodparameter', 'ProductParameterController');
