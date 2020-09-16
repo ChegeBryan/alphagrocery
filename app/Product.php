@@ -24,6 +24,6 @@ class Product extends Model
     }
     public function parameter()
     {
-        return $this->belongsTo('App\ProductParameter');
+        return $this->belongsTo('App\ProductParameter', 'product_parameter_id');
     }
 }
