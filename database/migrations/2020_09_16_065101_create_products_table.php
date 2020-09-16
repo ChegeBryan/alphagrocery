@@ -30,7 +30,7 @@ class CreateProductsTable extends Migration
                 ->onDelete('restrict');
             $table->foreign('subcategory_id')
                 ->references('id')->on('subcategories')
-                ->onDelete('setnull');
+                ->onDelete('set null');
             $table->foreign('store_id')
                 ->references('id')->on('stores')
                 ->onDelete('cascade');
