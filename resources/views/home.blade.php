@@ -12,21 +12,21 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('img/slide1.jpg') }}" class="d-block w-100 rounded-lg" alt="...">
+        <img src="{{ asset('images/slide1.jpg') }}" class="d-block w-100 rounded-lg" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/slide1.jpg') }}" class="d-block w-100 rounded-lg" alt="...">
+        <img src="{{ asset('images/slide1.jpg') }}" class="d-block w-100 rounded-lg" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Second slide label</h5>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('img/slide1.jpg') }}" class="d-block w-100 rounded-lg" alt="...">
+        <img src="{{ asset('images/slide1.jpg') }}" class="d-block w-100 rounded-lg" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
@@ -61,7 +61,7 @@
       </div>
     </div>
     <div class="card">
-      <img src="{{ asset('img/br.jpeg') }}" class="card-img-top img-fluid" width="150px" height="150px" alt="...">
+      <img src="{{ asset('images/br.jpeg') }}" class="card-img-top img-fluid" width="150px" height="150px" alt="...">
 
       <div class="card-body">
         <div class="d-flex justify-content-between">
