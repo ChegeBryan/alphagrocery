@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Product;
+use App\Category;
+use App\ProductParameter;
+use App\Subcategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -25,7 +30,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        $subcategories = Subcategory::all('id', 'subcategory_name');
+        $parameters = ProductParameter::all('id', 'parameter');
+        return view('store.product.create', compact('subcategories', 'parameters'));
     }
 
     /**
@@ -36,7 +43,33 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'subcategory' => 'required',
+            'parameter' => 'required',
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|min:1',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'quantity' => 'required|min:1',
+        ]);
+
+        $image = $request->file('image');
+        $extension = $image->getClientOriginalExtension();
+        $filename  = 'product-' . time() . '.' . $extension;
+
+        $product = new Product([
+            'subcategory_id' => $request->get('subcategory'),
+            'store_id' => Auth::guard('store')->user()->id,
+            'product_parameter_id' => $request->get('parameter'),
+            'product_name' => $request->get('name'),
+            'product_description' => $request->get('description'),
+            'product_price' => $request->get('price'),
+            'product_image' => $filename,
+            'product_quantity' => $request->get('quantity'),
+        ]);
+        $product->save();
+        $image->storeAs('products', $filename);
+        return redirect('/products/create')->with('success', 'Product saved!');
     }
 
     /**
