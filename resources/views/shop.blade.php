@@ -4,33 +4,37 @@
 
 @section('content')
 <!-- Picks of the day -->
-<div class="container py-4">
-  <h3 class="text-center py-4">Shop</h3>
+<div class="container pb-4">
+  <h3 class="text-center pb-3">Shop</h3>
 
-  <div class="card-columns">
-    @foreach($products as $product)
-    <div class="card">
-      <img src="{{ asset('storage/products/'.$product->product_image) }}" class="card-img-top img-fluid" width="150px"
-           height="150px" alt="...">
-      <div class="card-body">
-        <div class="d-flex justify-content-between">
-          <span class="font-weight-bold text-info">Ksh. {{$product->product_price}}</span>
-          <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw fa-2x"></i></a>
+  @foreach($products->chunk(4) as $productchunks)
+  <div class="row">
+    @foreach($productchunks as $product)
+    <div class="col-sm-3">
+      <div class="card mb-4">
+        <img src="{{ asset('storage/products/'.$product->product_image) }}" class="card-img-top" width="150px"
+             height="150px" alt="...">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <span class="font-weight-bold text-info">Ksh. {{$product->product_price}}</span>
+            <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw fa-2x"></i></a>
+          </div>
+          <span class="text-muted">per. {{$product->parameter->parameter}}</span>
+          <p class="card-text">{{ucfirst($product->product_name)}}</p>
+          <p class="card-text">{{$product->product_description}}</p>
         </div>
-        <span class="text-muted">per. {{$product->parameter->parameter}}</span>
-        <p class="card-text">{{ucfirst($product->product_name)}}</p>
-        <p class="card-text">{{$product->product_description}}</p>
       </div>
     </div>
     @endforeach
   </div>
-</div>
-<!-- End picks of the day -->
+  @endforeach
 
-<div class="d-flex justify-content-center">
-  {{ $products->links() }}
-</div>
+  <!-- End picks of the day -->
 
+  <div class="d-flex justify-content-center">
+    {{ $products->links() }}
+  </div>
+</div>
 
 
 <div class="container text-center py-4">
