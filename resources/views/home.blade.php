@@ -82,7 +82,7 @@
 </div>
 <!-- End Shop by category -->
 
-<!-- Shop by vendor -->
+<!-- Shop by subcategory -->
 <div class="container text-center py-4">
   <h3 class="text-center py-4">Shop by Subcategory</h3>
 
@@ -201,33 +201,4 @@ $(document).ready(function() {
   });
 })
 </script>
-
-<!-- End Shop by vendor -->
-
-
-<!-- <div class="jumbotron jumbotron-fluid position-relative bg">
-    <div class="container position-absolute text-dark">
-        <h1 class="display-4 pt-5" style="font-family: 'Cedarville Cursive', cursive;">Mama Mboga Vegetables & Fruits</h1>
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
-    </div>
-</div> -->
-<!-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                    <div class="alert alert-success" role="alert">
-                        {{ session('status') }}
-                    </div>
-                    @endif
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
 @endsection
