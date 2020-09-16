@@ -10,7 +10,8 @@
   <!-- Page Heading -->
   <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Category</h1>
-    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+    <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+         class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
   </div>
 
   <!-- Content Row -->
@@ -63,7 +64,8 @@
                 </div>
                 <div class="col">
                   <div class="progress progress-sm mr-2">
-                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50"
+                         aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
                 </div>
               </div>
@@ -126,16 +128,18 @@
 
             <div class=" form-group">
               <label for="category_name">{{ __('Category Name') }}</label>
-              <input type="text" class="form-control" name="category_name" id="category_name" value="{{ $category->category_name }}">
+              <input type="text" class="form-control" name="category_name" id="category_name"
+                     value="{{ $category->category_name }}">
             </div>
             <div class="form-group">
               <label for="category_description">{{ __('Category Description') }}</label>
-              <textarea class="form-control" rows="3" name="category_description">{{ $category->category_description }}</textarea>
+              <textarea class="form-control" rows="3"
+                        name="category_description">{{ $category->category_description }}</textarea>
             </div>
 
             <div class="form-row">
               <div class="form-group col-md-6">
-                <img class="img-fluid w-25" src="{{ asset('images/category/'.$category->category_image) }}">
+                <img class="img-fluid w-25" src="{{ asset('storage/categories/'.$category->category_image) }}">
               </div>
               <div class="form-group col-md-6">
                 <div class="custom-file">
@@ -160,7 +164,8 @@
         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
           <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
           <div class="dropdown no-arrow">
-            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
             </a>
             <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
