@@ -32,8 +32,8 @@
           <tbody>
             @foreach($categories as $category)
             <tr>
-              <td><img src="{{ asset('storage/categories/'.$category->category_image )}}" alt="" class="rounded h-25">
-              </td>
+              <td><img src="{{ asset('storage/categories/'.$category->category_image )}}" alt="" class="rounded"
+                     width="75px" height="75px"></td>
               <td>{{$category->category_name}}</td>
               <td>{{$category->category_description}}</td>
               <td>
