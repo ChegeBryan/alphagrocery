@@ -144,6 +144,10 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $subcategory = Product::find($id);
+        $image = $subcategory->image;
+        Storage::disk('public')->delete('products/' . $image);
+        $subcategory->delete();
+        return redirect('/products')->with('success', 'Product deleted!');
     }
 }
