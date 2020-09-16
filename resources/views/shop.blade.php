@@ -7,7 +7,7 @@
 <div class="container py-4">
   <h3 class="text-center py-4">Shop</h3>
 
-  <div class="card-deck">
+  <div class="card-columns">
     @foreach($products as $product)
     <div class="card">
       <img src="{{ asset('storage/products/'.$product->product_image) }}" class="card-img-top img-fluid" width="150px"
