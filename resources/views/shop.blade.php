@@ -16,12 +16,13 @@
              height="150px" alt="...">
         <div class="card-body">
           <div class="d-flex justify-content-between">
-            <span class="font-weight-bold text-info">Ksh. {{$product->product_price}}</span>
-            <a href="#" class="text-dark"><i class="fa fa-cart-plus fa-fw fa-2x"></i></a>
+            <span class="font-weight-bold text-dark">Ksh. {{$product->product_price}}</span>
+            <a href="#" class="text-"><i class="fa fa-cart-plus fa-fw fa-2x"></i></a>
           </div>
           <span class="text-muted">per. {{$product->parameter->parameter}}</span>
           <p class="card-text">{{ucfirst($product->product_name)}}</p>
           <p class="card-text">{{$product->product_description}}</p>
+          <p class="card-text text-muted"><i class="fas fa-store"></i>&nbsp;{{$product->store->name}}</p>
         </div>
       </div>
     </div>
