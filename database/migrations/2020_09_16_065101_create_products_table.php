@@ -25,6 +25,19 @@ class CreateProductsTable extends Migration
             $table->bigInteger('product_quantity');
             $table->text('product_image');
             $table->timestamps();
+            $table->foreign('category_id')
+                ->references('id')->on('categories')
+                ->onDelete('restrict');
+            $table->foreign('subcategory_id')
+                ->references('id')->on('subcategories')
+                ->onDelete('setnull');
+            $table->foreign('store_id')
+                ->references('id')->on('stores')
+                ->onDelete('cascade');
+            $table->foreign('product_parameter_id')
+                ->references('id')->on('product_parameters')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
         });
     }
 
