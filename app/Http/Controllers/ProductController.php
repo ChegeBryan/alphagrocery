@@ -115,7 +115,6 @@ class ProductController extends Controller
         ]);
 
         $product = Product::find($id);
-        $product->subcategory_id = $request->get('subcategory');
         $product->store_id = Auth::guard('store')->user()->id;
         $product->product_parameter_id = $request->get('parameter');
         $product->product_name = $request->get('name');
@@ -123,6 +122,12 @@ class ProductController extends Controller
         $product->product_price = $request->get('price');
         $product->product_quantity = $request->get('quantity');
 
+        if ($request->has('subcategory')) {
+            $product->subcategory_id = $request->get('subcategory');
+        }
+        if ($request->has('parameter')) {
+            $product->product_parameter_id = $request->get('parameter');
+        }
         if ($request->has('image')) {
             $oldimage = $product->image;
             $image = $request->file('image');
