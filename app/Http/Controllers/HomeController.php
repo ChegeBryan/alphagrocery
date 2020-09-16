@@ -28,6 +28,7 @@ class HomeController extends Controller
     {
         $products = Product::latest()->take(4)->get();
         $categories = Category::all();
-        return view('home', compact('products', 'categories'));
+        $subcategories = Subcategory::all();
+        return view('home', compact('products', 'categories', 'subcategories'));
     }
 }
