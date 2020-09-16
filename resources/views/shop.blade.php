@@ -32,7 +32,7 @@
 
   <!-- End picks of the day -->
 
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center pt-5">
     {{ $products->links() }}
   </div>
 </div>
