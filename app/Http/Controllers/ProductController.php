@@ -91,7 +91,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $subcategories = Subcategory::all();
+        $parameters = ProductParameter::all();
+        return view('store.product.edit', compact('product', 'parameters', 'subcategories'));
     }
 
     /**
@@ -103,7 +106,34 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required|min:1',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'quantity' => 'required|min:1',
+        ]);
+
+        $product = Product::find($id);
+        $product->subcategory_id = $request->get('subcategory');
+        $product->store_id = Auth::guard('store')->user()->id;
+        $product->product_parameter_id = $request->get('parameter');
+        $product->product_name = $request->get('name');
+        $product->product_description = $request->get('description');
+        $product->product_price = $request->get('price');
+        $product->product_quantity = $request->get('quantity');
+
+        if ($request->has('image')) {
+            $oldimage = $product->image;
+            $image = $request->file('image');
+            $extension = $image->getClientOriginalExtension();
+            $filename  = 'product-' . time() . '.' . $extension;
+            $product->product_image = $filename;
+        }
+        $product->save();
+        $image->storeAs('products', $filename, 'public');
+        Storage::move('products/' . $oldimage, 'products/' . $image);
+        return redirect('/products')->with('success', 'Product Updated!');
     }
 
     /**
