@@ -42,16 +42,16 @@ class CategoryController extends Controller
             'category_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $image = $request->file('category_image');
-        $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/category');
-        $image->move($destinationPath, $input['imagename']);
+        $image = $request->file('image');
+        $extension = $image->getClientOriginalExtension();
+        $filename  = 'category-' . time() . '.' . $extension;
         $category = new Category([
             'category_name' => $request->get('category_name'),
             'category_description' => $request->get('category_description'),
-            'category_image' => $input['imagename'],
+            'category_image' => $filename,
         ]);
         $category->save();
+        $image->storeAs('categories', $filename, 'public');
         return redirect('/category/create')->with('success', 'Category saved!');
     }
 
