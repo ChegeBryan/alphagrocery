@@ -18,4 +18,9 @@ class Orders extends Model
         'order_status',
         'order_subtotal',
     ];
+
+    public function product()
+    {
+        return $this->belongsTo('App\Product');
+    }
 }

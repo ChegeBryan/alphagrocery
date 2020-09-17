@@ -21,4 +21,8 @@ class Product extends Model
     {
         return $this->belongsTo('App\ProductParameter', 'product_parameter_id');
     }
+    public function orders()
+    {
+        return $this->hasMany('App\Orders');
+    }
 }
