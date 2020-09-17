@@ -30,6 +30,9 @@ class CheckoutController extends Controller
      */
     public function create()
     {
+        if (Session::has('deliveryinfo')) {
+            return redirect()->route('checkout.index')->with('alert', 'Provide delivery information before proceeding!');
+        }
         return view('checkout.create');
     }
 
