@@ -41,5 +41,5 @@ Route::group(['middleware' => 'auth:store', 'prefix' => 'store'], function () {
     Route::resource('products', 'ProductController');
 });
 
-Route::post('cart', 'CartController@clear')->name('cart.clear');
+Route::post('/clear', 'CartController@clear')->name('cart.clear');
 Route::resource('cart', 'CartController');
