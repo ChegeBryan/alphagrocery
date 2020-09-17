@@ -28,4 +28,8 @@ class Orders extends Model
     {
         return $this->belongsTo('App\Store');
     }
+    public function shipping()
+    {
+        return $this->belongsTo('App\Shipping');
+    }
 }
