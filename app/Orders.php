@@ -1,0 +1,21 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Orders extends Model
+{
+    protected $fillable = [
+        'customer_id',
+        'shipping_id',
+        'product_id',
+        'store_id',
+        'store_name',
+        'product_name',
+        'product_image',
+        'product_quantity',
+        'order_status',
+        'order_subtotal',
+    ];
+}
