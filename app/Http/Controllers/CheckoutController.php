@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Session;
+use App\Shipping;
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -34,7 +36,21 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+        ]);
+
+        $shipping = new Shipping([
+            'name' => $request->get('name'),
+            'phone_number' => $request->get('phone'),
+            'address' => $request->get('address'),
+        ]);
+        $shipping->save();
+        $deliveryinfo = $shipping->id;
+        Session::flash('deliveryinfo', $deliveryinfo);
+        return redirect('/checkout/create')->with('success', 'Delivery information saved!');
     }
 
     /**
