@@ -92,7 +92,7 @@
 
   <div class="d-flex justify-content-between mt-3">
     <div>
-      <form action="{{ route('cart.destroy', $item->id) }}" method="POST">
+      <form action="{{ route('cart.clear') }}" method="POST">
         {{ csrf_field() }}
         <button class="btn btn-warning btn-md">Clear Cart</button>
       </form>
