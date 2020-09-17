@@ -68,7 +68,7 @@
           <input type="text" class="form-control" name="address" id="address">
         </div>
         <button type="submit" class="btn btn-primary btn-block mt-3">
-          {{ __('Add Shipping Info') }}
+          {{ __('Save Shipping Info') }}
         </button>
       </form>
     </div>
