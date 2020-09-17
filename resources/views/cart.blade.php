@@ -37,7 +37,7 @@
   <h4>You have {{ \Cart::getTotalQuantity()}} Product(s) In Your Cart</h4><br>
   @else
   <h4>No Product(s) In Your Cart</h4><br>
-  <a href="/" class="btn btn-dark">Continue Shopping</a>
+  <a href="{{ route('shop') }}" class="btn btn-dark">Continue Shopping</a>
   @endif
   @foreach($cartItems as $item)
   <div class="row">
@@ -98,7 +98,7 @@
       </form>
     </div>
     <div>
-      <a href="/shop" class="btn btn-dark">Continue Shopping</a>
+      <a href="{{ route('shop')}}" class="btn btn-dark">Continue Shopping</a>
       <a href="/checkout" class="btn btn-success">Proceed To Checkout</a>
     </div>
 
