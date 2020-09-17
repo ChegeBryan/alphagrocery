@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="container pb-4">
-  <h3 class="text-center pb-3">Add Shipping info</h3>
+  <h3 class="text-center pb-3">Add Delivery info</h3>
   @if(session()->has('success'))
   <div class="alert alert-success alert-dismissible fade show" role="alert">
     {{ session()->get('success') }}
@@ -32,12 +32,11 @@
   @endforeach
   @endif
 </div>
-<div class="container">
-  <div class="card shadow mb-4">
-    <!-- Card Header - Dropdown -->
-    <h6 class="card-header m-0 font-weight-bold text-primary py-3">Create Product</h6>
+<div class="container d-flex justify-content-center">
+  <div class="card shadow mb-4" style="width: 18rem;">
     <!-- Card Body -->
     <div class="card-body">
+      <h5 class="card-title font-weight-bold text-primary text-center">Add Delivery Information</h5>
       @if(session()->get('success'))
       <div class="alert alert-success">
         {{ session()->get('success') }}
@@ -65,10 +64,10 @@
         </div>
         <div class=" form-group">
           <label for="address">{{ __('Delivery Address') }}</label>
-          <input type="text" class="form-control" name="address" id="address">
+          <textarea class="form-control" name="address" id="address" rows="2"></textarea>
         </div>
         <button type="submit" class="btn btn-primary btn-block mt-3">
-          {{ __('Save Shipping Info') }}
+          {{ __('Save Delivery Info') }}
         </button>
       </form>
     </div>
