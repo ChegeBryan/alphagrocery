@@ -24,7 +24,14 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        \Cart::add(array(
+            'id' => $request->id,
+            'name' => $request->name,
+            'price' => $request->price,
+            'quantity' => $request->quantity,
+            'image' => $request->img,
+        ));
+        return back();
     }
 
     /**
