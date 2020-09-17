@@ -23,4 +23,9 @@ class Orders extends Model
     {
         return $this->belongsTo('App\Product');
     }
+
+    public function store()
+    {
+        return $this->belongsTo('App\Store');
+    }
 }
