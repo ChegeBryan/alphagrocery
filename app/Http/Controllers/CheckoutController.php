@@ -54,7 +54,7 @@ class CheckoutController extends Controller
         $shipping->save();
         $deliveryinfo = $shipping->id;
         Session::flash('deliveryinfo', $deliveryinfo);
-        return redirect('/checkout/create')->with('success', 'Delivery information saved!');
+        return redirect()->route('checkout.index')->with('success', 'Delivery information saved you can place order.');
     }
 
     /**
