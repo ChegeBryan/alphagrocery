@@ -41,4 +41,4 @@ Route::group(['middleware' => 'auth:store', 'prefix' => 'store'], function () {
     Route::resource('products', 'ProductController');
 });
 
-Route::resource('cart', 'CartController');
+Route::apiResource('cart', 'CartController');
