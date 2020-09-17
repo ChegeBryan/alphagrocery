@@ -5,52 +5,37 @@
 @section('content')
 <div class="container pb-4">
   <h3 class="text-center pb-3">Add Delivery info</h3>
-  @if(session()->has('success'))
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ session()->get('success') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  @endif
-  @if(session()->has('alert'))
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    {{ session()->get('alert') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  @endif
-  @if(count($errors) > 0)
-  @foreach($errors0>all() as $error)
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
-    {{ $error }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  @endforeach
-  @endif
 </div>
 <div class="container d-flex justify-content-center">
   <div class="card shadow mb-4" style="width: 18rem;">
     <!-- Card Body -->
     <div class="card-body">
       <h5 class="card-title font-weight-bold text-primary text-center">Add Delivery Information</h5>
-      @if(session()->get('success'))
-      <div class="alert alert-success">
+      @if(session()->has('success'))
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session()->get('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
       </div>
       @endif
-      @if ($errors->any())
-      <div class="alert alert-danger">
-        <ul>
-          @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
-          @endforeach
-        </ul>
+      @if(session()->has('alert'))
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        {{ session()->get('alert') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
       </div>
-      <br />
+      @endif
+      @if(count($errors) > 0)
+      @foreach($errors0>all() as $error)
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ $error }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      @endforeach
       @endif
       <form method="POST" action="{{ route('checkout.store') }}">
         @csrf
