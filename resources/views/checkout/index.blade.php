@@ -70,11 +70,19 @@
               {{ \Cart::getTotal() }}</span></li>
         </ul>
       </div>
-
-      <div class="col-lg-5">
-      </div>
+      @endif
     </diV>
+    <div class="col-lg-5">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Delivery To:</h5>
+          <p class="card-text"><span class="font-weight-bold">Name: </span>{{ $deliverydetails->name }}</p>
+          <p class="card-text"><span class="font-weight-bold">Phone Number: </span>{{ $deliverydetails->phone_number }}
+          </p>
+          <p class="card-text"><span class="font-weight-bold">Address: </span>{{$deliverydetails->address }}</p>
+        </div>
+      </div>
+    </div>
   </div>
-  @endif
 </div>
 @endsection
