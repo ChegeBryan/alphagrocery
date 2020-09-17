@@ -64,14 +64,14 @@
             <input type="hidden" value="{{ $item->id}}" id="id" name="id">
             <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity"
                    name="quantity" style="width: 70px; margin-right: 10px;">
-            <button class="btn btn-secondary btn-sm" style="margin-right: 25px;"><i class="fa fa-save"></i></button>
+            <button class="btn btn-info btn-sm" style="margin-right: 25px;"><i class="fa fa-save"></i></button>
           </div>
         </form>
         <form action="{{ route('cart.destroy' , $item->id) }}" method="POST">
           @method('DELETE')
           {{ csrf_field() }}
           <input type="hidden" value="{{ $item->id }}" id="id" name="id">
-          <button class="btn btn-dark btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
+          <button class="btn btn-danger btn-sm" style="margin-right: 10px;"><i class="fa fa-trash"></i></button>
         </form>
       </div>
     </div>
