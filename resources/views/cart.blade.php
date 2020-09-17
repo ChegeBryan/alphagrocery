@@ -64,7 +64,8 @@
             <input type="hidden" value="{{ $item->id}}" id="id" name="id">
             <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity"
                    name="quantity" style="width: 70px; margin-right: 10px;">
-            <button class="btn btn-info btn-sm" style="margin-right: 25px;"><i class="fa fa-save"></i></button>
+            <button class="btn btn-info btn-sm" style="margin-right: 25px;"><i
+                 class="fa fa-save text-white"></i></button>
           </div>
         </form>
         <form action="{{ route('cart.destroy' , $item->id) }}" method="POST">
