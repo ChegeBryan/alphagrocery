@@ -53,7 +53,7 @@ class CheckoutController extends Controller
         ]);
         $shipping->save();
         $deliveryinfo = $shipping->id;
-        Session::flash('deliveryinfo', $deliveryinfo);
+        Session::put('deliveryinfo', $deliveryinfo);
         return redirect()->route('checkout.index')->with('success', 'Delivery information saved you can place order.');
     }
 
