@@ -31,6 +31,7 @@ class CartController extends Controller
             'price' => $request->price,
             'quantity' => $request->quantity,
             'image' => $request->img,
+            'associatedModel' => 'Product'
         ));
         return back();
     }
