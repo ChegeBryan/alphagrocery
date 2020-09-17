@@ -18,4 +18,9 @@ class User extends Authenticatable
     protected $fillable = [
         'firstName', 'lastName', 'phoneNumber', 'homeAddress', 'email', 'password',
     ];
+
+    public function orders()
+    {
+        return $this->hasMany('App\Order');
+    }
 }

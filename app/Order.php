@@ -32,4 +32,8 @@ class Orders extends Model
     {
         return $this->belongsTo('App\Shipping');
     }
+    public function customer()
+    {
+        return $this->belongsTo('App\User');
+    }
 }
