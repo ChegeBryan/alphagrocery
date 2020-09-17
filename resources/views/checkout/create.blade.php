@@ -7,7 +7,7 @@
   <h3 class="text-center pb-3">Add Delivery info</h3>
 </div>
 <div class="container d-flex justify-content-center">
-  <div class="card shadow mb-4" style="width: 18rem;">
+  <div class="card shadow mb-4" style="width: 20rem;">
     <!-- Card Body -->
     <div class="card-body">
       <h5 class="card-title font-weight-bold text-primary text-center">Add Delivery Information</h5>
