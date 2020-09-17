@@ -9,6 +9,6 @@ $factory->define(Category::class, function (Faker $faker) {
     return [
         'category_name' => $faker->word,
         'category_description' => $faker->sentence,
-        'category_image' => '1600094558.png',
+        'category_image' => '500.png',
     ];
 });

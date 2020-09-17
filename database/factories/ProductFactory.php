@@ -13,7 +13,7 @@ $factory->define(Product::class, function (Faker $faker) {
         'product_name' => $faker->word,
         'product_description' => $faker->sentence,
         'product_price' => $faker->randomFloat(2, 50, 1000),
-        'product_image' => '1600094558.png',
+        'product_image' => '500.png',
         'product_quantity' => $faker->randomDigit,
     ];
 });
