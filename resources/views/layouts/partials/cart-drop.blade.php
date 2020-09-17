@@ -24,7 +24,7 @@
   </div>
 </li>
 <a class="btn btn-dark btn-sm btn-block" href="{{ route('cart.index') }}">Cart</a>
-<a class="btn btn-dark btn-sm btn-block" href="">Checkout</i>
+<a class="btn btn-dark btn-sm btn-block" href="{{route('checkout.create')}}">Checkout</i>
 </a>
 @else
 <li class="list-group-item">Your Cart is Empty</li>
