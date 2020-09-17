@@ -57,7 +57,7 @@
     </div>
     <div class="col-lg-3">
       <div class="row">
-        <form action="{{ route('cart.update', $item->id) }}">
+        <form action="{{ route('cart.update', $item->id) }}" method="POST">
           @method('PATCH')
           {{ csrf_field() }}
           <div class="form-group row">
