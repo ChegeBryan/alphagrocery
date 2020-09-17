@@ -28,7 +28,7 @@ Route::post('/login/store', 'Auth\LoginController@storeLogin');
 Route::post('/register/admin', 'Auth\RegisterController@createAdmin')->name('register.admin');
 Route::post('/register/store', 'Auth\RegisterController@createStore')->name('register.store');
 
-Route::view('/home', 'home')->middleware('auth');
+//Route::view('/home', 'home')->middleware('auth');
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
     Route::view('', 'admin.dashboard')->name('admin.home');
     Route::resource('category', 'CategoryController');
