@@ -55,7 +55,16 @@ class CartController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        \Cart::update(
+            $id,
+            array(
+                'quantity' => array(
+                    'relative' => false,
+                    'value' => $request->quantity
+                ),
+            )
+        );
+        return redirect()->route('cart.index')->with('success_msg', 'Cart is Updated!');
     }
 
     /**
