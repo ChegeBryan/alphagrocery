@@ -19,7 +19,8 @@ class CheckoutController extends Controller
             return redirect()->route('checkout.create')->with('alert', 'Provide delivery information before proceeding!');
         }
         $cartItems = \Cart::getContent();
-        return view('checkout.index', compact('cartItems'));
+        $deliverydetails = Shipping::find(Session::get('deliveryinfo'));
+        return view('checkout.index', compact('cartItems', 'deliverydetails'));
     }
 
     /**
