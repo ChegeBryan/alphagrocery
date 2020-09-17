@@ -40,3 +40,5 @@ Route::group(['middleware' => 'auth:store', 'prefix' => 'store'], function () {
     Route::view('', 'store.dashboard')->name('store.home');
     Route::resource('products', 'ProductController');
 });
+
+Route::resource('cart', 'CartController');
