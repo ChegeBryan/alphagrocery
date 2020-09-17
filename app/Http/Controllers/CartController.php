@@ -13,7 +13,8 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $cartItems = \Cart::getContent();
+        return view('cart', compact('cartItems'));
     }
 
     /**
@@ -65,6 +66,7 @@ class CartController extends Controller
      */
     public function destroy($id)
     {
-        //
+        \Cart::remove($id);
+        return redirect()->route('cart.index')->with('success_msg', 'Item is removed!');
     }
 }
