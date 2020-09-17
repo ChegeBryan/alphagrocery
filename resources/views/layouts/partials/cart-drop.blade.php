@@ -18,27 +18,14 @@
 @endforeach
 <br>
 <li class="list-group-item">
-  <div class="row">
-    <div class="col-lg-10">
-      <b>Total: </b>${{ \Cart::getTotal() }}
-    </div>
-    <div class="col-lg-2">
-      <form action="{{ route('cart.destroy', $item->id) }}" method="POST">
-        {{ csrf_field() }}
-        <button class="btn btn-secondary btn-sm"><i class="fa fa-trash"></i></button>
-      </form>
-    </div>
+  <div class="d-flex justify-content-between">
+    <span class="font-weight-bold">Total: </span>
+    <span class="font-weight-bolder">Kshs.{{ Cart::getTotal() }}</span>
   </div>
 </li>
-<br>
-<div class="row" style="margin: 0px;">
-  <a class="btn btn-dark btn-sm btn-block" href="{{ route('cart.index') }}">
-    CART <i class="fa fa-arrow-right"></i>
-  </a>
-  <a class="btn btn-dark btn-sm btn-block" href="">
-    CHECKOUT <i class="fa fa-arrow-right"></i>
-  </a>
-</div>
+<a class="btn btn-dark btn-sm btn-block" href="{{ route('cart.index') }}">Cart</a>
+<a class="btn btn-dark btn-sm btn-block" href="">Checkout</i>
+</a>
 @else
 <li class="list-group-item">Your Cart is Empty</li>
 @endif
