@@ -71,6 +71,9 @@
         </ul>
       </div>
       @endif
+      <div class="d-flex justify-content-end mt-3">
+        <a href="" class="btn btn-success">Place order</a>
+      </div>
     </diV>
     <div class="col-lg-5">
       <div class="card">
