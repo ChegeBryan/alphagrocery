@@ -63,6 +63,8 @@
           {{ csrf_field() }}
           <input type="hidden" value="{{ $product->id }}" id="id" name="id">
           <input type="hidden" value="{{ $product->product_name }}" id="name" name="name">
+          <input type="hidden" value="{{ $product->store->id }}" id="store" name="store">
+          <input type="hidden" value="{{ $product->store->store_name }}" id="store_name" name="store_name">
           <input type="hidden" value="{{ $product->product_price }}" id="price" name="price">
           <input type="hidden" value="{{ $product->product_image }}" id="img" name="img">
           <input type="hidden" value="1" id="quantity" name="quantity">
