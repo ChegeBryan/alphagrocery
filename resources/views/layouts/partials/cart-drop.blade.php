@@ -17,7 +17,7 @@
 </li>
 @endforeach
 <br>
-<li class="list-group-item">
+<li class="list-group-item mb-3">
   <div class="d-flex justify-content-between">
     <span class="font-weight-bold">Total: </span>
     <span class="font-weight-bolder">Kshs.{{ Cart::getTotal() }}</span>

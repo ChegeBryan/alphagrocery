@@ -26,8 +26,9 @@
          <li class="nav-item dropdown">
            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false">
-             <span class="badge badge-pill badge-dark">
-               <i class="fa fa-shopping-cart"></i> {{ \Cart::getTotalQuantity()}}
+             <i class="fa fa-shopping-cart fa-fw"></i>
+             <span class="badge badge-dark badge-counter">
+               {{ \Cart::getTotalQuantity()}}
              </span>
            </a>
 
@@ -36,7 +37,6 @@
              <ul class="list-group" style="margin: 20px;">
                @include('layouts.partials.cart-drop')
              </ul>
-
            </div>
          </li>
 
