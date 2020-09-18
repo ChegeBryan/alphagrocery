@@ -42,7 +42,8 @@
   @foreach($cartItems as $item)
   <div class="row">
     <div class="col-lg-3">
-      <img src="{{ asset('storage/products/'.$item->image )}}" class="img-thumbnail" width="200" height="200">
+      <img src="{{ asset('storage/products/'.$item->attributes->image )}}" class="img-fluid rounded" width="100px"
+           height="100px">
     </div>
     <div class="col-lg-3">
       <p>
