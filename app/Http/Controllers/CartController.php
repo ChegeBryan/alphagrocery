@@ -28,11 +28,13 @@ class CartController extends Controller
         \Cart::add(array(
             'id' => $request->id,
             'name' => $request->name,
-            'store' => $request->store,
-            'store_name' => $request->store_name,
             'price' => $request->price,
             'quantity' => $request->quantity,
-            'image' => $request->img,
+            'attributes' => array(
+                'image' => $request->img,
+                'store' => $request->store,
+                'store_name' => $request->store_name,
+            ),
             'associatedModel' => 'Product'
         ));
         return back();
