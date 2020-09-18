@@ -72,7 +72,10 @@
       </div>
       @endif
       <div class="d-flex justify-content-end mt-3">
-        <a href="" class="btn btn-success">Place order</a>
+        <form action="{{ route('order.place') }}" method="POST">
+          {{ csrf_field() }}
+          <button class="btn btn-success" title="Place order">Place order</button>
+        </form>
       </div>
     </diV>
     <div class="col-lg-5">
