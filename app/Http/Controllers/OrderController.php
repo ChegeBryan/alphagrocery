@@ -26,5 +26,12 @@ class OrderController extends Controller
             ]);
             $item->save();
         }
+        return redirect()->route('order.complete')->with('success', 'Order Placed! It will get delivered to you in no time.');
+    }
+
+    public function orderComplete()
+    {
+        \Cart::clear();
+        return view('order.complete');
     }
 }
