@@ -47,4 +47,5 @@ Route::resource('cart', 'CartController');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('checkout', 'CheckoutController');
+    Route::post('/order/place', 'OrderController@saveOrder')->name('order.place');
 });
