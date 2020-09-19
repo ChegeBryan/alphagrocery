@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-<head>
+  <head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -20,15 +21,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @yield('custom-css')
-</head>
+  </head>
 
-<body>
+  <body>
     <div id="app">
-        @include('layouts.partials.homeNavbar')
-        <div style="margin-top: 5rem">
-            @yield('content')
-        </div>
+      @include('layouts.partials.homeNavbar')
+      <div style="margin-top: 5rem">
+        @yield('content')
+      </div>
     </div>
-</body>
+  </body>
 
 </html>
