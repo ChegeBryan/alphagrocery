@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Subcategory;
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 use function Psy\debug;
 
@@ -97,16 +98,16 @@ class SubcategoryController extends Controller
         ]);
 
         $subcategory = Subcategory::find($id);
+        $old_image = $subcategory->subcategory_image;
         $subcategory->subcategory_name = $request->get('subcategory_name');
         if ($request->has('category')) {
             $subcategory->category_id = $request->get('category');
         };
         if ($request->has('subcategory_image')) {
             $image = $request->file('category_image');
-            $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/category');
-            $image->move($destinationPath, $input['imagename']);
-            $subcategory->subcategory_image = $input['imagename'];
+            $extension = $image->getClientOriginalExtension();
+            $filename  = 'subcategory-' . time() . '.' . $extension;
+            Storage::move('categories/' . $old_image, 'categories/' . $filename);
         };
 
         $subcategory->save();
