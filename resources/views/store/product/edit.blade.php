@@ -104,6 +104,26 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Price (Kshs.)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($products as $product)
+                                <tr>
+                                    <td><img src="{{ asset('storage/products/'.$product->product_image )}}" alt="" class="rounded" width="75px" height="75px"></td>
+                                    <td>{{$product->product_name}}</td>
+                                    <td>{{$product->product_price}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
