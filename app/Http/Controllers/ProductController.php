@@ -32,7 +32,8 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::all('id', 'subcategory_name');
         $parameters = ProductParameter::all('id', 'parameter');
-        return view('store.product.create', compact('subcategories', 'parameters'));
+        $products = Product::latest()->take(5)->get();
+        return view('store.product.create', compact('subcategories', 'parameters', 'products'));
     }
 
     /**
@@ -94,7 +95,8 @@ class ProductController extends Controller
         $product = Product::find($id);
         $subcategories = Subcategory::all();
         $parameters = ProductParameter::all();
-        return view('store.product.edit', compact('product', 'parameters', 'subcategories'));
+        $products = Product::latest()->take(5)->get();
+        return view('store.product.edit', compact('product', 'parameters', 'subcategories', 'products'));
     }
 
     /**
