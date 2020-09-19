@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Grocery @endsection
+@section('title') Alpha Grocery @endsection
 
 @section('content')
 <!-- Picks of the day -->

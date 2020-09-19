@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Grocery @endsection
+@section('title') Alpha Grocery @endsection
 
 @section('content')
 <div class="container">
@@ -106,7 +106,7 @@
 </div>
 
 <div class="container text-center py-4">
-  <h2>Grocery Vegetables and Fruits</h2>
+  <h2>Alpha Grocery Vegetables and Fruits</h2>
   <p class="text-muted">Explore new way of getting vegetables and fruits at your doorstep.</p>
   <div class="row">
     <div class="col-sm-4">
