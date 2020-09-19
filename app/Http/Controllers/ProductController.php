@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::where('store_id', Auth::guard('store')->user()->id)->get();
         return view('store.product.index', compact('products'));
     }
 
@@ -32,7 +32,7 @@ class ProductController extends Controller
     {
         $subcategories = Subcategory::all('id', 'subcategory_name');
         $parameters = ProductParameter::all('id', 'parameter');
-        $products = Product::latest()->take(5)->get();
+        $products = Product::latest()->where('store_id', Auth::guard('store')->user()->id)->take(5)->get();
         return view('store.product.create', compact('subcategories', 'parameters', 'products'));
     }
 
