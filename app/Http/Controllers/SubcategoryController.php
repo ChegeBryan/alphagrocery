@@ -57,7 +57,7 @@ class SubcategoryController extends Controller
         ]);
         $subcategory->save();
         $image->storeAs('categories', $filename, 'public');
-        return redirect('/subcategory/create')->with('success', 'Sub-Category saved!');
+        return redirect()->route('subcategory.create')->with('success', 'Sub-Category saved!');
     }
 
     /**
@@ -113,7 +113,7 @@ class SubcategoryController extends Controller
         };
 
         $subcategory->save();
-        return redirect('/subcategory')->with('success', 'Sub-Category updated!');
+        return redirect()->route('subcategory.index')->with('success', 'Sub-Category updated!');
     }
 
     /**
@@ -127,6 +127,6 @@ class SubcategoryController extends Controller
         $subcategory = Subcategory::find($id);
         $subcategory->delete();
 
-        return redirect('/subcategory')->with('success', 'Sub-Category deleted!');
+        return redirect()->route('subcategory.index')->with('success', 'Sub-Category deleted!');
     }
 }
