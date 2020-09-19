@@ -26,7 +26,8 @@ class ProductParameterController extends Controller
      */
     public function create()
     {
-        return view('admin.productParameter.create');
+        $product_parameters = ProductParameter::latest()->take(5)->get();
+        return view('admin.productParameter.create', compact('product_parameters'));
     }
 
     /**
@@ -68,7 +69,8 @@ class ProductParameterController extends Controller
     public function edit($id)
     {
         $parameter = ProductParameter::find($id);
-        return view('admin.productParameter.edit', compact('parameter'));
+        $product_parameters = ProductParameter::latest()->take(5)->get();
+        return view('admin.productParameter.edit', compact('parameter', 'product_parameters'));
     }
 
     /**
