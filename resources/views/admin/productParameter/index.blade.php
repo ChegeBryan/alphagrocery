@@ -30,7 +30,7 @@
                         @foreach($product_parameters as $parameter)
                         <tr>
                             <td>{{$parameter->parameter}}</td>
-                            <td>{{2}}</td>
+                            <td>{{$parameter->products->count()}}</td>
                             <td>
                                 <a href="{{ route('prodparameter.edit', $parameter->id)}}" class="btn btn-primary">Edit</a>
                             </td>
