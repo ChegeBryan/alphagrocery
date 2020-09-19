@@ -3,9 +3,6 @@
 @section('title')
 {{ Auth::guard('admin')->user()->name }}
 @endsection
-@section('custom-css')
-<link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
-@endsection
 
 @section('body')
 <div class="container-fluid">

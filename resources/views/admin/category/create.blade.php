@@ -3,9 +3,6 @@
 @section('title')
 {{ Auth::guard('admin')->user()->name }}
 @endsection
-@section('custom-css')
-<link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
-@endsection
 @section('body')
 <div class="container-fluid">
 
@@ -63,17 +60,15 @@
             </div>
         </div>
 
-        <!-- Pie Chart -->
         <div class="col-xl-4 col-lg-5">
             <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Registered Categories (Overview)</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Recently Registered Categories</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
+                        <table class="table table-bordered" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
                                     <th>Image</th>
@@ -96,7 +91,4 @@
     </div>
 
 </div>
-@endsection
-@section('custom-script')
-<script src="{{ asset('js/dt.js') }}"></script>
 @endsection
