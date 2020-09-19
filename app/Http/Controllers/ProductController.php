@@ -69,7 +69,7 @@ class ProductController extends Controller
         ]);
         $product->save();
         $image->storeAs('products', $filename, 'public');
-        return redirect('/products/create')->with('success', 'Product saved!');
+        return redirect()->route('products.create')->with('success', 'Product saved!');
     }
 
     /**
@@ -140,7 +140,7 @@ class ProductController extends Controller
         if (Storage::disk('public')->exists('products/' . $new_image)) {
             Storage::disk('public')->delete('products/' . $current_image);
         }
-        return redirect('/products')->with('success', $current_image);
+        return redirect()->route('products.index')->with('success', 'Product updated');
     }
 
     /**
@@ -155,6 +155,6 @@ class ProductController extends Controller
         $image = $subcategory->image;
         Storage::disk('public')->delete('products/' . $image);
         $subcategory->delete();
-        return redirect('/products')->with('success', 'Product deleted!');
+        return redirect()->route('products.index')->with('success', 'Product deleted!');
     }
 }
