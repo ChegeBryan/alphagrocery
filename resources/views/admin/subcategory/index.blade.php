@@ -28,7 +28,8 @@
                             <th>Image</th>
                             <th>Subcategory</th>
                             <th>Category</th>
-                            <th colspan=2>Actions</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
