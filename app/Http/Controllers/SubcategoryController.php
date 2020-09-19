@@ -30,7 +30,8 @@ class SubcategoryController extends Controller
     public function create()
     {
         $categories = Category::all('id', 'category_name');
-        return view('admin.subcategory.create', compact('categories'));
+        $subcategories = Subcategory::latest()->take(5)->get();
+        return view('admin.subcategory.create', compact('categories', 'subcategories'));
     }
 
     /**

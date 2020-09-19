@@ -85,7 +85,25 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Subcategory</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($subcategories as $subcategory)
+                                <tr>
+                                    <td><img src="{{ asset('storage/categories/'.$subcategory->subcategory_image )}}" alt="" class="rounded" width="75px" height="75px">
+                                    </td>
+                                    <td>{{$subcategory->subcategory_name}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>

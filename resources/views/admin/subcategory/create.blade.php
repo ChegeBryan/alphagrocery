@@ -68,10 +68,29 @@
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Recently Add Subcategories</h6>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Image</th>
+                                    <th>Subcategory</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($subcategories as $subcategory)
+                                <tr>
+                                    <td><img src="{{ asset('storage/categories/'.$subcategory->subcategory_image )}}" alt="" class="rounded" width="75px" height="75px">
+                                    </td>
+                                    <td>{{$subcategory->subcategory_name}}</td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
