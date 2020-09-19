@@ -24,7 +24,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.14.0",
-        "datatables.net": "^1.10.21",
+        "datatables.net-bs4": "^1.10.22",
         "jquery-easing": "0.0.1",
         "slick-carousel": "^1.8.1"
     }
