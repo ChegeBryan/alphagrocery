@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Mama Mboga @endsection
+@section('title') Grocery @endsection
 
 @section('content')
 <!-- Picks of the day -->

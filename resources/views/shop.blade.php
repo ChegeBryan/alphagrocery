@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Mama Mboga @endsection
+@section('title') Grocery @endsection
 
 @section('content')
 <!-- Picks of the day -->
@@ -12,8 +12,7 @@
     @foreach($productchunks as $product)
     <div class="col-sm-3">
       <div class="card mb-4">
-        <img src="{{ asset('storage/products/'.$product->product_image) }}" class="card-img-top" width="150px"
-             height="150px" alt="...">
+        <img src="{{ asset('storage/products/'.$product->product_image) }}" class="card-img-top" width="150px" height="150px" alt="...">
         <div class="card-body">
           <h6 class="card-title font-weight-bold">{{ucfirst($product->product_name)}}</h6>
           <p class="card-subtitle font-weight-bold">Ksh. {{$product->product_price}}</p>
@@ -49,7 +48,7 @@
 
 
 <div class="container text-center py-4">
-  <h2>Mama Mboga Vegetables and Fruits</h2>
+  <h2>Grocery Vegetables and Fruits</h2>
   <p class="text-muted">Explore new way of getting vegetables and fruits at your doorstep.</p>
   <div class="row">
     <div class="col-sm-4">
@@ -78,79 +77,79 @@
 
 
 <script>
-$(document).ready(function() {
-  $('.slido').slick({
-    dots: true,
-    infinite: false,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
+  $(document).ready(function() {
+    $('.slido').slick({
+      dots: true,
+      infinite: false,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [{
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+    $('.vendors').slick({
+      dots: true,
+      infinite: true,
+      speed: 300,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      responsive: [{
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
         }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
-  $('.vendors').slick({
-    dots: true,
-    infinite: true,
-    speed: 300,
-    slidesToShow: 4,
-    slidesToScroll: 4,
-    autoplay: true,
-    autoplaySpeed: 2000,
-    responsive: [{
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2
-        }
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-      // You can unslick at a given breakpoint now by adding:
-      // settings: "unslick"
-      // instead of a settings object
-    ]
-  });
-})
+        // You can unslick at a given breakpoint now by adding:
+        // settings: "unslick"
+        // instead of a settings object
+      ]
+    });
+  })
 </script>
 @endsection

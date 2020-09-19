@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title') Mama Mboga @endsection
+@section('title') Grocery @endsection
 
 @section('content')
 <div class="container pb-4">
@@ -42,8 +42,7 @@
   @foreach($cartItems as $item)
   <div class="row">
     <div class="col-lg-3">
-      <img src="{{ asset('storage/products/'.$item->attributes->image )}}" class="img-fluid rounded" width="100px"
-           height="100px">
+      <img src="{{ asset('storage/products/'.$item->attributes->image )}}" class="img-fluid rounded" width="100px" height="100px">
     </div>
     <div class="col-lg-3">
       <p>
@@ -63,10 +62,8 @@
           {{ csrf_field() }}
           <div class="form-group row">
             <input type="hidden" value="{{ $item->id}}" id="id" name="id">
-            <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity"
-                   name="quantity" style="width: 70px; margin-right: 10px;">
-            <button class="btn btn-info btn-sm" style="margin-right: 25px;"><i
-                 class="fa fa-save text-white"></i></button>
+            <input type="number" class="form-control form-control-sm" value="{{ $item->quantity }}" id="quantity" name="quantity" style="width: 70px; margin-right: 10px;">
+            <button class="btn btn-info btn-sm" style="margin-right: 25px;"><i class="fa fa-save text-white"></i></button>
           </div>
         </form>
         <form action="{{ route('cart.destroy' , $item->id) }}" method="POST">
@@ -85,8 +82,7 @@
   @if(count($cartItems)>0)
   <div class="card">
     <ul class="list-group list-group-flush">
-      <li class="list-group-item"><span class="font-weight-bold">Total: </span><span
-              class="float-right font-weight-bolder">Kshs.
+      <li class="list-group-item"><span class="font-weight-bold">Total: </span><span class="float-right font-weight-bolder">Kshs.
           {{ \Cart::getTotal() }}</span></li>
     </ul>
   </div>

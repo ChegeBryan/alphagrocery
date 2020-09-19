@@ -1,10 +1,9 @@
  <nav class="navbar navbar-expand-md navbar-light bg-white shadow-lg fixed-top">
    <div class="container">
      <a class="navbar-brand" href="{{ url('/') }}">
-       Mama Mboga
+       Grocery
      </a>
-     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
        <span class="navbar-toggler-icon"></span>
      </button>
 
@@ -24,16 +23,14 @@
        <!-- Right Side Of Navbar -->
        <ul class="navbar-nav ml-auto">
          <li class="nav-item dropdown">
-           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false">
+           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
              <i class="fa fa-shopping-cart fa-fw"></i>
              <span class="badge badge-dark badge-counter">
                {{ \Cart::getTotalQuantity()}}
              </span>
            </a>
 
-           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown"
-                style="width: 450px; padding: 0px; border-color: #9DA0A2">
+           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown" style="width: 450px; padding: 0px; border-color: #9DA0A2">
              <ul class="list-group" style="margin: 20px;">
                @include('layouts.partials.cart-drop')
              </ul>
@@ -51,8 +48,7 @@
          @endif
          @else
          <li class="nav-item dropdown">
-           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown"
-              aria-haspopup="true" aria-expanded="false" v-pre>
+           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
              {{ Auth::user()->name }} <span class="caret"></span>
            </a>
 
