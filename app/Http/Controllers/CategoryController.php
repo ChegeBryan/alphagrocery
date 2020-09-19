@@ -54,7 +54,7 @@ class CategoryController extends Controller
         ]);
         $category->save();
         $image->storeAs('categories', $filename, 'public');
-        return redirect('/category/create')->with('success', 'Category saved!');
+        return redirect()->route('category.create')->with('success', 'Category saved!');
     }
 
     /**
@@ -115,7 +115,7 @@ class CategoryController extends Controller
         if (Storage::disk('public')->exists('categories/' . $new_image)) {
             Storage::disk('public')->delete('categories/' . $current_image);
         }
-        return redirect('/category')->with('success', 'Category updated!');
+        return redirect()->route('category.index')->with('success', 'Category updated!');
     }
 
     /**
@@ -129,6 +129,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
 
-        return redirect('/category')->with('success', 'Category deleted!');
+        return redirect()->route('category.index')->with('success', 'Category deleted!');
     }
 }
