@@ -28,8 +28,8 @@
                             <th>Image</th>
                             <th>Name</th>
                             <th>Description</th>
-                            <th>Actions</th>
-                            <th>Actions</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
