@@ -100,18 +100,23 @@ class SubcategoryController extends Controller
         ]);
 
         $subcategory = Subcategory::find($id);
-        $old_image = $subcategory->subcategory_image;
         $subcategory->subcategory_name = $request->get('subcategory_name');
+        $current_image = $subcategory->category_image;
+        $new_image = "";
+
         if ($request->has('category')) {
             $subcategory->category_id = $request->get('category');
         };
         if ($request->has('subcategory_image')) {
-            $image = $request->file('category_image');
-            $extension = $image->getClientOriginalExtension();
+            $new_image = $request->file('subcategory_image');
+            $extension = $new_image->getClientOriginalExtension();
             $filename  = 'subcategory-' . time() . '.' . $extension;
-            Storage::move('categories/' . $old_image, 'categories/' . $filename);
+            $subcategory->subcategory_image = $filename;
+            $new_image->storeAs('categories', $filename, 'public');
         };
-
+        if (Storage::disk('public')->exists('categories/' . $new_image)) {
+            Storage::disk('public')->delete('categories/' . $current_image);
+        }
         $subcategory->save();
         return redirect()->route('subcategory.index')->with('success', 'Sub-Category updated!');
     }
