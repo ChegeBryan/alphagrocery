@@ -46,15 +46,15 @@ class SubcategoryController extends Controller
             'subcategory_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $image = $request->file('subcategory_image');
-        $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-        $destinationPath = public_path('/images/category');
-        $image->move($destinationPath, $input['imagename']);
+        $extension = $image->getClientOriginalExtension();
+        $filename  = 'subcategory-' . time() . '.' . $extension;
         $subcategory = new Subcategory([
             'subcategory_name' => $request->get('subcategory_name'),
             'category_id' => $request->get('category'),
-            'subcategory_image' => $input['imagename'],
+            'subcategory_image' => $filename,
         ]);
         $subcategory->save();
+        $image->storeAs('categories', $filename, 'public');
         return redirect('/subcategory/create')->with('success', 'Sub-Category saved!');
     }
 
