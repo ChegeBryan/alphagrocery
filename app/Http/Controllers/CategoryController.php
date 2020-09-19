@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -99,15 +100,21 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->category_name = $request->get('category_name');
         $category->category_description = $request->get('category_description');
+        $current_image = $category->category_image;
+        $new_image = "";
+
         if ($request->has('category_image')) {
-            $image = $request->file('category_image');
-            $input['imagename'] = time() . '.' . $image->getClientOriginalExtension();
-            $destinationPath = public_path('/images/category');
-            $image->move($destinationPath, $input['imagename']);
-            $category->category_image = $input['imagename'];
+            $new_image = $request->file('image');
+            $extension = $new_image->getClientOriginalExtension();
+            $filename  = 'category-' . time() . '.' . $extension;
+            $category->category_image = $filename;
+            $new_image->storeAs('categories', $filename, 'public');
         };
 
         $category->save();
+        if (Storage::disk('public')->exists('categories/' . $new_image)) {
+            Storage::disk('public')->delete('categories/' . $current_image);
+        }
         return redirect('/category')->with('success', 'Category updated!');
     }
 
