@@ -34,7 +34,7 @@
                     <tbody>
                         @foreach($subcategories as $subcategory)
                         <tr>
-                            <td><img src="{{ asset('storage/categories/'.$subcategory->subcategory_image )}}" alt="" class="rounded h-25" width="75px" height="75px">
+                            <td><img src="{{ asset('storage/categories/'.$subcategory->subcategory_image )}}" alt="" class="rounded" width="75px" height="75px">
                             </td>
                             <td>{{$subcategory->subcategory_name}}</td>
                             <td>{{$subcategory->category->category_name}}</td>
