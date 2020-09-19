@@ -81,7 +81,8 @@ class SubcategoryController extends Controller
     {
         $subcategory = Subcategory::find($id);
         $categories = Category::all();
-        return view('admin.subcategory.edit', compact('subcategory', 'categories'));
+        $subcategories = Subcategory::latest()->take(5)->get();
+        return view('admin.subcategory.edit', compact('subcategory', 'categories', 'subcategories'));
     }
 
     /**
