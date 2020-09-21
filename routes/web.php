@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
 Route::group(['middleware' => 'auth:store', 'prefix' => 'store'], function () {
     Route::view('', 'store.dashboard')->name('store.home');
     Route::resource('products', 'ProductController');
+    Route::get('orders/customer', 'OrderManagementController@customerOrders')->name('orders.customer');
     Route::resource('orders', 'OrderManagementController');
 });
 
