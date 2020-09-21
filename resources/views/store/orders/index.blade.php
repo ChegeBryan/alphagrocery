@@ -29,7 +29,10 @@
               <th>Customer</th>
               <th>Order Total (Kshs.)</th>
               <th>Order Status</th>
-              <th>Actions</th>
+              <th>Invoice</th>
+              <th>Orders By Customer</th>
+              <th>Complete Order</th>
+              <th>Remove Order</th>
             </tr>
           </thead>
           <tbody>
@@ -41,7 +44,24 @@
               <td>{{$order->order_subtotal}}</td>
               <td>{{$order->order_status}}</td>
               <td>
-                {{$n}}
+                <a href="{{ route('orders.show', $order->id)}}" class="btn btn-info"><i class="fas fa-info"></i>
+                  Invoice</a>
+              </td>
+              <td>
+                <a href="{{ route('orders.customer', $order->customer_id)}}" class="btn btn-warning"><i
+                     class="fas fa-clipboard-list"></i> Orders</a>
+              </td>
+              <td>
+                <a href="{{ route('orders.edit', $order->id)}}" class="btn btn-success"><i
+                     class="fas fa-check-circle"></i> Complete</a>
+              </td>
+
+              <td>
+                <form action="{{ route('orders.destroy', $order->id)}}" method="post">
+                  @csrf
+                  @method('DELETE')
+                  <button class="btn btn-danger" type="submit"><i class="fas fa-trash-alt"></i> Delete</button>
+                </form>
               </td>
             </tr>
             @endforeach
