@@ -52,8 +52,13 @@
                      class="fas fa-clipboard-list"></i> Orders</a>
               </td>
               <td>
-                <a href="{{ route('orders.edit', $order->id)}}" class="btn btn-success"><i
-                     class="fas fa-check-circle"></i> Complete</a>
+                <form action="{{ route('orders.update', $order->id)}}" method="post">
+                  @csrf
+                  @method('PATCH')
+                  <input type="hidden" value="Completed" id="status" name="status">
+                  <button class="btn btn-success" type="submit"><i class="fas fa-check-circle"></i> Mark as
+                    Complete</button>
+                </form>
               </td>
 
               <td>
