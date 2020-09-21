@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Order;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderManagementController extends Controller
 {
@@ -13,7 +15,11 @@ class OrderManagementController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::where([
+            ['store_id', Auth::guard('store')->user()->id],
+            ['order_status', 'Pending']
+        ])->get();
+        return view('store.orders.index', compact('orders'));
     }
 
     /**
