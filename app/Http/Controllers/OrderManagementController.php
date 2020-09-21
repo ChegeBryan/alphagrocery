@@ -55,6 +55,16 @@ class OrderManagementController extends Controller
         return view('store.orders.show', compact('order'));
     }
 
+    public function customerOrders($id)
+    {
+        $orders = Order::where([
+            ['store_id', Auth::guard('store')->user()->id],
+            ['order_status', 'Placed'],
+            ['customer_id', $id]
+        ])->get();
+        return view('store.orders.customer', compact('orders'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
