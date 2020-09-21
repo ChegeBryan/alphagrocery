@@ -17,7 +17,7 @@ class OrderManagementController extends Controller
     {
         $orders = Order::where([
             ['store_id', Auth::guard('store')->user()->id],
-            ['order_status', 'Pending']
+            ['order_status', 'Placed']
         ])->get();
         return view('store.orders.index', compact('orders'));
     }

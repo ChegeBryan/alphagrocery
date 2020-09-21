@@ -36,8 +36,8 @@
             @php ($n = 0)
             @foreach($orders as $order)
             <tr>
-              <td>{{$n++}}</td>
-              <td>{{$order->user->name}}</td>
+              <td>{{++$n}}</td>
+              <td>{{$order->customer->name}}</td>
               <td>{{$order->order_subtotal}}</td>
               <td>{{$order->order_status}}</td>
               <td>
