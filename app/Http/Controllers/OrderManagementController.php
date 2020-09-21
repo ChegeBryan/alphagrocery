@@ -51,7 +51,11 @@ class OrderManagementController extends Controller
      */
     public function show($id)
     {
-        //
+        $order = Order::where([
+            ['store_id', Auth::guard('store')->user()->id],
+            ['customer_id', $id]
+        ])->get();
+        return view('store.orders.show', compact('order'));
     }
 
     /**
