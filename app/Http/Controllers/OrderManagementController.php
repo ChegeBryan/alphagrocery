@@ -85,7 +85,11 @@ class OrderManagementController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+        $order->order_status = $request->get('status');
+        $order->save();
+
+        return redirect()->route('orders.index')->with('success', 'Order has been completed!');
     }
 
     /**
