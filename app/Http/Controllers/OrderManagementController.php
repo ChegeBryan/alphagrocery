@@ -100,6 +100,8 @@ class OrderManagementController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $order = Order::find($id);
+        $order->delete();
+        return redirect()->route('orders.index')->with('success', 'Order deleted!');
     }
 }
