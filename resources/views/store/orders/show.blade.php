@@ -35,8 +35,8 @@
           <tbody>
             <tr>
               <td>{{$order->product_name}}</td>
-              <td>{{$order->product_quantity}}</td>
-              <td>{{$order->order_subtotal}}</td>
+              <td align="right">{{$order->product_quantity}}</td>
+              <td align="right">{{$order->order_subtotal}}</td>
             </tr>
           </tbody>
         </table>
