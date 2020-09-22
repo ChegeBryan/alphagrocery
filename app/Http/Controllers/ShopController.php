@@ -28,6 +28,6 @@ class ShopController extends Controller
     {
         $products = Product::where('store_id', $id)->paginate(20);
         $store = Store::find($id);
-        return view('shopsubcategory', compact('products', 'store'));
+        return view('shopstore', compact('products', 'store'));
     }
 }
