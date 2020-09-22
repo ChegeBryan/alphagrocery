@@ -21,6 +21,11 @@
                 {{ session()->get('success') }}
             </div>
             @endif
+            @if(session()->get('warning'))
+            <div class="alert alert-warning">
+                {{ session()->get('warning') }}
+            </div>
+            @endif
             <div class="table-responsive">
                 <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
                     <thead>

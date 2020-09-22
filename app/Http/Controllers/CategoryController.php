@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -126,9 +127,13 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::find($id);
-        $category->delete();
+        try {
+            $category = Category::find($id);
+            $category->delete();
 
-        return redirect()->route('category.index')->with('success', 'Category deleted!');
+            return redirect()->route('category.index')->with('success', 'Category deleted!');
+        } catch (Exception $e) {
+            return redirect()->route('category.index')->with('warning', 'Category has associated subcategory. Deletion cancelled!');
+        }
     }
 }
