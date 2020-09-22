@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\ProductParameter;
+use Exception;
 use Illuminate\Http\Request;
 use Mockery\Generator\Parameter;
 
@@ -102,9 +103,13 @@ class ProductParameterController extends Controller
      */
     public function destroy($id)
     {
-        $parameter = ProductParameter::find($id);
-        $parameter->delete();
+        try {
+            $parameter = ProductParameter::find($id);
+            $parameter->delete();
 
-        return redirect('/prodparameter')->with('success', 'Parameter deleted!');
+            return redirect('/prodparameter')->with('success', 'Parameter deleted!');
+        } catch (Exception $e) {
+            return redirect()->back()->with('warning', 'Parameter  has associated products. Deletion Cancelled!');
+        }
     }
 }
