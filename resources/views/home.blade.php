@@ -98,8 +98,10 @@
   <div class="vendors" data-slick='{"slidesToShow": 4, "slidesToScroll": 4}'>
     @foreach($subcategories as $subcategory)
     <div>
-      <img src="{{ asset('storage/subcategories/'.$subcategory->subcategory_image) }}" alt="" class="" width="150px"
-           height="150px">
+      <a href="{{route('shop.subcategory', $subcategory->id)}}"><img
+             src="{{ asset('storage/subcategories/'.$subcategory->subcategory_image) }}" alt="" class="" width="150px"
+             height="150px">
+      </a>
     </div>
     @endforeach
   </div>
