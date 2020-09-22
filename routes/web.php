@@ -37,7 +37,7 @@ Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
 });
 
 Route::group(['middleware' => 'auth:store', 'prefix' => 'store'], function () {
-    Route::view('', 'store.dashboard')->name('store.home');
+    Route::redirect('', '/store/products', 301)->name('store.home');
     Route::resource('products', 'ProductController');
     Route::get('orders/customer/{id}', 'OrderManagementController@customerOrders')->name('orders.customer');
     Route::resource('orders', 'OrderManagementController');
