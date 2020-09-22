@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use App\Subcategory;
 use App\Category;
+use App\Store;
 use Illuminate\Http\Request;
 
 class ShopController extends Controller
@@ -23,7 +24,10 @@ class ShopController extends Controller
         return view('shopsubcategory', compact('products', 'subcategory'));
     }
 
-    public function shopByStore($name)
+    public function shopByStore($id)
     {
+        $products = Product::where('store_id', $id)->paginate(20);
+        $store = Store::find($id);
+        return view('shopsubcategory', compact('products', 'store'));
     }
 }
