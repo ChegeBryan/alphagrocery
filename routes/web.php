@@ -17,6 +17,9 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/shop', 'HomeController@allProducts')->name('shop');
+Route::get('/shop/category/{name}', 'ShopController@shopByCategory')->name('shop.category');
+Route::get('/shop/subcategory/{name}', 'ShopController@shopBySubcategory')->name('shop.subcategory');
+Route::get('/shop/store/{name}', 'ShopController@shopByStore')->name('shop.store');
 
 Route::get('/login/admin', 'Auth\LoginController@gotoAdminLoginForm');
 Route::get('/login/store', 'Auth\LoginController@gotoStoreLoginForm');
