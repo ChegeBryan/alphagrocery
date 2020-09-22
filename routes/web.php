@@ -30,7 +30,7 @@ Route::post('/register/store', 'Auth\RegisterController@createStore')->name('reg
 
 //Route::view('/home', 'home')->middleware('auth');
 Route::group(['middleware' => 'auth:admin', 'prefix' => 'admin'], function () {
-    Route::view('', 'admin.dashboard')->name('admin.home');
+    Route::redirect('', '/admin/category', 301)->name('admin.home');
     Route::resource('category', 'CategoryController');
     Route::resource('subcategory', 'SubcategoryController');
     Route::resource('prodparameter', 'ProductParameterController');
