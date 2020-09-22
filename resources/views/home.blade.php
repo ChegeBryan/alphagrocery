@@ -15,27 +15,28 @@
     </ol>
     <div class="carousel-inner rounded-lg">
       <div class="carousel-item active rounded-lg">
-        <img src="{{ asset('images/slide1.jpg') }}" class="d-block w-100 rounded-lg" width="1110px" height="555px"
+        <img src="{{ asset('images/slide1.jpg') }}" class="d-block w-100 rounded-lg img-fluid" width="1110px"
+             height="555px" alt="...">
+      </div>
+      <div class="carousel-item rounded-lg">
+        <img src="{{ asset('images/slide2.jpg') }}" class="d-block w-100 img-fluid" width="1110px" height="555px"
              alt="...">
       </div>
       <div class="carousel-item rounded-lg">
-        <img src="{{ asset('images/slide2.jpg') }}" class="d-block w-100" width="1110px" height="555px" alt="...">
+        <img src="{{ asset('images/slide3.jpg') }}" class="d-block w-100 rounded-lg img-fluid" width="1110px"
+             height="555px" alt="...">
       </div>
       <div class="carousel-item rounded-lg">
-        <img src="{{ asset('images/slide3.jpg') }}" class="d-block w-100 rounded-lg" width="1110px" height="555px"
-             alt="...">
+        <img src="{{ asset('images/slide4.jpg') }}" class="d-block w-100 rounded-lg img-fluid" width="1110px"
+             height="555px" alt="...">
       </div>
       <div class="carousel-item rounded-lg">
-        <img src="{{ asset('images/slide4.jpg') }}" class="d-block w-100 rounded-lg" width="1110px" height="555px"
-             alt="...">
+        <img src="{{ asset('images/slide5.jpg') }}" class="d-block w-100 rounded-lg img-fluid" width="1110px"
+             height="555px" alt="...">
       </div>
       <div class="carousel-item rounded-lg">
-        <img src="{{ asset('images/slide5.jpg') }}" class="d-block w-100 rounded-lg" width="1110px" height="555px"
-             alt="...">
-      </div>
-      <div class="carousel-item rounded-lg">
-        <img src="{{ asset('images/slide6.jpg') }}" class="d-block w-100 rounded-lg" width="1110px" height="555px"
-             alt="...">
+        <img src="{{ asset('images/slide6.jpg') }}" class="d-block w-100 rounded-lg img-fluid" width="1110px"
+             height="555px" alt="...">
       </div>
     </div>
   </div>
