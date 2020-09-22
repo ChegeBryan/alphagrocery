@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Subcategory;
 use App\Category;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -129,9 +130,13 @@ class SubcategoryController extends Controller
      */
     public function destroy($id)
     {
-        $subcategory = Subcategory::find($id);
-        $subcategory->delete();
+        try {
+            $subcategory = Subcategory::find($id);
+            $subcategory->delete();
 
-        return redirect()->route('subcategory.index')->with('success', 'Sub-Category deleted!');
+            return redirect()->back()->with('success', 'Subcategory deleted!');
+        } catch (Exception $e) {
+            return redirect()->back()->with('warning', 'Subcategory has associated products. Deletion Canceled!');
+        }
     }
 }
