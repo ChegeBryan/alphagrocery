@@ -19,7 +19,8 @@
           <p class="card-subtitle font-weight-bold">Ksh. {{$product->product_price}}</p>
           <span class="text-muted">per. {{$product->parameter->parameter}}</span>
           <p class="card-text">{{$product->product_description}}</p>
-          <p class="card-text text-muted"><i class="fas fa-store"></i>&nbsp;{{$product->store->name}}</p>
+          <p class="card-text text-muted"><a href="{{route('shop.store', $product->store_id)}}"><i
+                 class="fas fa-store"></i>&nbsp;{{$product->store->name}}</a></p>
           <form action="{{ route('cart.store') }}" method="POST">
             {{ csrf_field() }}
             <input type="hidden" value="{{ $product->id }}" id="id" name="id">
