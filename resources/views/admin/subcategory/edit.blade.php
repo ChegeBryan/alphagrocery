@@ -7,107 +7,110 @@
 @section('body')
 <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0 text-gray-800">Sub Category</h1>
-    </div>
-    <!-- Content Row -->
+  <!-- Page Heading -->
+  <div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Sub Category</h1>
+  </div>
+  <!-- Content Row -->
 
-    <div class="row">
+  <div class="row">
 
-        <!-- Area Chart -->
-        <div class="col-xl-8 col-lg-7">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <h6 class="card-header m-0 font-weight-bold text-primary py-3">Update Subcategory</h6>
-                <!-- Card Body -->
-                <div class="card-body">
-                    @if(session()->get('success'))
-                    <div class="alert alert-success">
-                        {{ session()->get('success') }}
-                    </div>
-                    @endif
-                    @if ($errors->any())
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <br />
-                    @endif
-                    <form method="POST" action="{{ route('subcategory.update', $subcategory->id) }}" enctype="multipart/form-data">
-                        @method('PATCH')
-                        @csrf
+    <!-- Area Chart -->
+    <div class="col-xl-8 col-lg-7">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <h6 class="card-header m-0 font-weight-bold text-primary py-3">Update Subcategory</h6>
+        <!-- Card Body -->
+        <div class="card-body">
+          @if(session()->get('success'))
+          <div class="alert alert-success">
+            {{ session()->get('success') }}
+          </div>
+          @endif
+          @if ($errors->any())
+          <div class="alert alert-danger">
+            <ul>
+              @foreach ($errors->all() as $error)
+              <li>{{ $error }}</li>
+              @endforeach
+            </ul>
+          </div>
+          <br />
+          @endif
+          <form method="POST" action="{{ route('subcategory.update', $subcategory->id) }}"
+                enctype="multipart/form-data">
+            @method('PATCH')
+            @csrf
 
-                        <div class=" form-group">
-                            <label for="subcategory_name">{{ __('Sub-Category Name') }}</label>
-                            <input type="text" class="form-control" name="subcategory_name" id="subcategory_name" value="{{ $subcategory->subcategory_name }}">
-                        </div>
-
-                        <div class="form-text mb-3">Current Category: {{$subcategory->category->category_name}}</div>
-
-                        <select class="custom-select" name="category">
-                            <option selected disabled>Select New category</option>
-                            @foreach($categories as $category)
-                            <option value="{{ $category->id }}">{{$category->category_name}}</option>
-                            @endforeach
-                        </select>
-
-                        <div class="form-row mt-3">
-                            <div class="form-group col-md-6">
-                                <img class="img-fluid w-25" src="{{asset('images/category/'.$subcategory->subcategory_image)}}">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="subcategory_image" name="subcategory_image">
-                                    <label class="custom-file-label" for="subcategory_image">Update subcategory pic</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary btn-block mt-3">
-                            {{ __('Update Subcategory') }}
-                        </button>
-                    </form>
-                </div>
+            <div class=" form-group">
+              <label for="subcategory_name">{{ __('Sub-Category Name') }}</label>
+              <input type="text" class="form-control" name="subcategory_name" id="subcategory_name"
+                     value="{{ $subcategory->subcategory_name }}">
             </div>
-        </div>
 
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card shadow mb-4">
-                <!-- Card Header - Dropdown -->
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Recent Subcategories Added</h6>
+            <div class="form-text mb-3">Current Category: {{$subcategory->category->category_name}}</div>
 
+            <select class="custom-select" name="category">
+              <option selected disabled>Select New category</option>
+              @foreach($categories as $category)
+              <option value="{{ $category->id }}">{{$category->category_name}}</option>
+              @endforeach
+            </select>
+
+            <div class="form-row mt-3">
+              <div class="form-group col-md-6">
+                <img class="img-fluid w-25" src="{{asset('storage/subcategories/'.$subcategory->subcategory_image)}}">
+              </div>
+              <div class="form-group col-md-6">
+                <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="subcategory_image" name="subcategory_image">
+                  <label class="custom-file-label" for="subcategory_image">Update subcategory pic</label>
                 </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Subcategory</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach($subcategories as $subcategory)
-                                <tr>
-                                    <td><img src="{{ asset('storage/categories/'.$subcategory->subcategory_image )}}" alt="" class="rounded" width="75px" height="75px">
-                                    </td>
-                                    <td>{{$subcategory->subcategory_name}}</td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+              </div>
             </div>
+
+            <button type="submit" class="btn btn-primary btn-block mt-3">
+              {{ __('Update Subcategory') }}
+            </button>
+          </form>
         </div>
+      </div>
     </div>
+
+    <!-- Pie Chart -->
+    <div class="col-xl-4 col-lg-5">
+      <div class="card shadow mb-4">
+        <!-- Card Header - Dropdown -->
+        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+          <h6 class="m-0 font-weight-bold text-primary">Recent Subcategories Added</h6>
+
+        </div>
+        <!-- Card Body -->
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dt" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Image</th>
+                  <th>Subcategory</th>
+                </tr>
+              </thead>
+              <tbody>
+                @foreach($subcategories as $subcategory)
+                <tr>
+                  <td><img src="{{ asset('storage/subcategories/'.$subcategory->subcategory_image )}}" alt=""
+                         class="rounded" width="75px" height="75px">
+                  </td>
+                  <td>{{$subcategory->subcategory_name}}</td>
+                </tr>
+                @endforeach
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </div>
 @endsection
