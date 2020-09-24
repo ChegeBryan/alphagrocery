@@ -57,7 +57,7 @@ class SubcategoryController extends Controller
             'subcategory_image' => $filename,
         ]);
         $subcategory->save();
-        $image->storeAs('categories', $filename, 'public');
+        $image->storeAs('subcategories', $filename, 'public');
         return redirect()->route('subcategory.create')->with('success', 'Sub-Category saved!');
     }
 
@@ -113,10 +113,10 @@ class SubcategoryController extends Controller
             $extension = $new_image->getClientOriginalExtension();
             $filename  = 'subcategory-' . time() . '.' . $extension;
             $subcategory->subcategory_image = $filename;
-            $new_image->storeAs('categories', $filename, 'public');
+            $new_image->storeAs('subcategories', $filename, 'public');
         };
-        if (Storage::disk('public')->exists('categories/' . $new_image)) {
-            Storage::disk('public')->delete('categories/' . $current_image);
+        if (Storage::disk('public')->exists('subcategories/' . $new_image)) {
+            Storage::disk('public')->delete('subcategories/' . $current_image);
         }
         $subcategory->save();
         return redirect()->route('subcategory.index')->with('success', 'Sub-Category updated!');
