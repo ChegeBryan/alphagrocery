@@ -105,7 +105,7 @@ class CategoryController extends Controller
         $new_image = "";
 
         if ($request->has('category_image')) {
-            $new_image = $request->file('image');
+            $new_image = $request->file('category_image');
             $extension = $new_image->getClientOriginalExtension();
             $filename  = 'category-' . time() . '.' . $extension;
             $category->category_image = $filename;
